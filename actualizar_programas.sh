@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Hola que tal"
+
 # Captura el nombre de la computadora y la fecha exacta
 MAQUINA=$(hostname)
 FECHA=$(date +"%d-%b-%Y %H:%M")

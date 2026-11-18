@@ -24,9 +24,9 @@ PROGRAM RK5
     dt = 0.001_rp
     m = 1000000_ip
     !Condiciones iniciales
-    ystart(1) = -1000.0_rp
-    ystart(2) = 500.0_rp
-    ystart(3) = 985.0_rp
+    ystart(1) = 200.0_rp
+    ystart(2) = -10.0_rp
+    ystart(3) = 3.0_rp
 
     OPEN(10, FILE='datos.dat')
    ! WRITE(10, *) t, ystart(1)
@@ -44,7 +44,7 @@ PROGRAM RK5
     
       !Escritura de los posibles puntos fijos
      sigma1 = 10.0_rp
-     rho1 = 1.2_rp
+     rho1 = 29.5_rp
      beta1 = 8.0_rp / 3.0_rp
      
      xx = sqrt(beta1*(rho1-1_rp))
@@ -217,7 +217,7 @@ CONTAINS !!=====================================================================
             END DO
 
             ! Si el paso sobrepasa el limite x2, lo ajusta
-            IF ((x + h - x2) * (x + h - x1) > 0.0) h = x2 - x
+            IF ((x + h - x2) * (x + h - x1) > 0.0_rp) h = x2 - x
             
             CALL rkqs(y, dydx, nvar, x, h, eps, yscal, hdid, hnext, derivs)
 
@@ -251,7 +251,7 @@ CONTAINS !!=====================================================================
         REAL(rp) :: sigma, rho, beta
         
         sigma = 10.0_rp
-        rho = 1.2_rp
+        rho = 29.5_rp
         beta = 8.0_rp / 3.0_rp
         
         dydt(1) = sigma * (y(2) - y(1))
